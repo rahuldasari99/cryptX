@@ -25,26 +25,30 @@ function fetchdata() {
             console.log(coinscard);
 
             coinscard.innerHTML = `
-                      <div class=" bg-black text-white d-flex flex-row coin-card" >
-                      <div class=card-img-container>
-                        <img src="${
-                          coins.iconUrl
-                        }" class="card-img" alt="No Poster"/>
-                        
-                        <p class="card-title">${coins.symbol}</p>
-                          <p class="coin-price">Price ${Number(
-                          coins.price
-                        ).toLocaleString("en-IN", {
-                          style: "currency",
-                          currency: "USD",
-                          minimumFractionDigits: 2,
-                          maximumFractionDigits: 2,
-                        })}</p>
-                      
-                        </div>
-                        
-                       
-                        </div>
+             <div class="bg-black text-white coin-card">
+                <div class="card-img-container">
+                  <img src="${coins.iconUrl}" class="card-img" alt="No Poster"/>
+                 
+                </div>
+                <div class="card-info">
+                <p class="coin-symbol">${coins.symbol}</p>
+                 <p class="coin-price">
+                 Price ${Number(coins.price).toLocaleString("en-IN", {
+                    style: "currency",
+                    currency: "USD",
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                  })}
+                 </p> 
+                 
+                </div>
+
+              
+                  
+                 
+                 
+                </div>
+               
                     `;
 
             cardContainer.appendChild(coinscard);
@@ -75,27 +79,32 @@ function fetchtrendingcoins() {
            
 
 
-          coinscard.innerHTML = `
-            <div class="bg-black text-white d-flex flex-row coin-card">
-              <div class="card-img-container">
-                <img src="${coins.iconUrl}" class="card-img" alt="No Poster"/>
-                <p class="card-title">${coins.symbol}</p>
-              </div>
-              <div class="card-info">
-                <h3 class="card-title">${coins.name}</h3>
-                <p class="coin-price">
-                  Price ${Number(coins.price).toLocaleString("en-IN", {
+         coinscard.innerHTML = `
+             <div class="bg-black text-white coin-card">
+                <div class="card-img-container">
+                  <img src="${coins.iconUrl}" class="card-img" alt="No Poster"/>
+                 
+                </div>
+                <div class="card-info">
+                <p class="coin-symbol">${coins.symbol}</p>
+                 <p class="coin-price">
+                 Price ${Number(coins.price).toLocaleString("en-IN", {
                     style: "currency",
                     currency: "USD",
                     minimumFractionDigits: 2,
                     maximumFractionDigits: 2,
                   })}
-                </p>
-                <p class="card-title">Rank ${coins.rank}</p>
-              </div>
-            </div>
-          `;
+                 </p> 
+                 
+                </div>
 
+              
+                  
+                 
+                 
+                </div>
+               
+                    `;
           cardContainer.appendChild(coinscard);
         });
       } else {
@@ -106,6 +115,10 @@ function fetchtrendingcoins() {
 }
 let ucoinnameEl=document.getElementById("ucoinname")
 console.log(ucoinnameEl)
+
+
+
+
 function usersearch() {
   let coinname = ucoinnameEl.value.trim();
   console.log(coinname);
@@ -132,14 +145,21 @@ function usersearch() {
             console.log(coinscard);
 
             coinscard.innerHTML = `
-              <div class="bg-black text-white d-flex flex-row coin-card">
+             <div class="bg-black text-white coin-card">
                 <div class="card-img-container">
                   <img src="${coins.iconUrl}" class="card-img" alt="No Poster"/>
                  
                 </div>
                 <div class="card-info">
                 <p class="coin-symbol">${coins.symbol}</p>
-                 <p class="coin-price">${coins.price}</p> 
+                 <p class="coin-price">
+                 Price ${Number(coins.price).toLocaleString("en-IN", {
+                    style: "currency",
+                    currency: "USD",
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                  })}
+                 </p> 
                  
                 </div>
 
@@ -148,9 +168,8 @@ function usersearch() {
                  
                  
                 </div>
-              
-            `;
-
+               
+                    `;
             cardContainer.appendChild(coinscard);
           });
         } else {
