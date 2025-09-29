@@ -80,7 +80,7 @@ function fetchtrendingcoins() {
 
 
          coinscard.innerHTML = `
-             <div class="bg-black text-white coin-card">
+             <div class="bg-black text-white coin-card" onclick="getCoinDetails('${coins.uuid}')">
                 <div class="card-img-container">
                   <img src="${coins.iconUrl}" class="card-img" alt="No Poster"/>
                  
@@ -126,7 +126,7 @@ function usersearch() {
   if (coinname === "") {
     alert("please enter a coin name");
   } else {
-    let data = fetch(`https://api.coinranking.com/v2/coins?search=${coinname}`, {
+    let data = fetch(`https://api.coinranking.com/v2/coins/?search=${coinname}`, {
       headers: {
         "x-access-token": apikey,
       },
@@ -145,7 +145,7 @@ function usersearch() {
             console.log(coinscard);
 
             coinscard.innerHTML = `
-             <div class="bg-black text-white coin-card">
+             <div class="bg-black text-white coin-card" onclick="getCoinDetails('${coins.uuid}')">
                 <div class="card-img-container">
                   <img src="${coins.iconUrl}" class="card-img" alt="No Poster"/>
                  
