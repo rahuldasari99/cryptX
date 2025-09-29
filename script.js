@@ -17,6 +17,7 @@ function fetchdata() {
       .then((res) => res.json())
       .then((d) => {
         console.log(d);
+        cardContainer.innerHTML = "";
         if (d.status === "success") {
           d.data.coins.forEach((coins) => {
             let coinscard = document.createElement("div");

@@ -7,19 +7,25 @@
     box-sizing: border-box;
     font-family: 'Montserrat', system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
+.container{
+    /* border: 2px solid black; */
+}
 
 .card-container{
     display: flex;
-    gap: 3rem;
+    gap: 0.4rem;
     flex-wrap: wrap;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    margin: 1rem;
+    
+    /* border: 2px solid black; */
 
 }
 .coins{
     /* border: 2px solid black; */
-    height: 10rem;
-    width: 20rem;
+    height: 9rem;
+    width: 14rem;
     padding: 2px;
    
 
@@ -57,4 +63,19 @@
 }
 .card-info{
     padding: 0.5rem;
+}
+
+
+.banner {
+  width: 100%;
+  height: 250px; /* adjust banner height */
+  overflow: hidden; /* hides any overflow */
+  border-radius: 10px;
+}
+
+.banner img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover; /* makes image scale nicely */
 }
