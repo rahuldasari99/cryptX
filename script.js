@@ -38,6 +38,7 @@ function fetchdata() {
                         
                         <div class="card-info">
                         <h3 class="card-title">${coins.name}</h3>
+                         <p class="card-title">Rank ${coins.rank}</p>
                         
                         <p class="coin-price">Price ${Number(
                           coins.price
@@ -47,7 +48,7 @@ function fetchdata() {
                           minimumFractionDigits: 2,
                           maximumFractionDigits: 2,
                         })}</p>
-                       <p class="card-title">Rank ${coins.rank}</p>
+                      
                         </div>
                         </div>
                     `;
