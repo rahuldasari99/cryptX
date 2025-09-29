@@ -25,7 +25,7 @@ function fetchdata() {
             console.log(coinscard);
 
             coinscard.innerHTML = `
-             <div class="bg-black text-white coin-card">
+             <div class="bg-black text-white coin-card" onclick="getCoinDetails('${coins.uuid}')">
                 <div class="card-img-container">
                   <img src="${coins.iconUrl}" class="card-img" alt="No Poster"/>
                  
@@ -179,3 +179,39 @@ function usersearch() {
       .catch((err) => console.error("Error fetching data:", err));
   }
 }
+function getCoinDetails(id) {
+  fetch(`https://api.coinranking.com/v2/coin/${id}?referenceCurrencyUuid=razxDUgYGNAdQ`, {
+    headers: {
+      "x-access-token": apikey,
+    },
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      let coin = data.data.coin;
+
+      // Set modal title
+      document.getElementById("coinTitle").innerText = coin.name;
+
+      // Fill modal body
+      document.getElementById("coinBody").innerHTML = `
+        <img src="${coin.iconUrl}" class="img-fluid mb-3 mx-auto d-block" style="max-width:100px;">
+        <p><b>Symbol:</b> ${coin.symbol}</p>
+        <p><b>Rank:</b> ${coin.rank}</p>
+        <p><b>Price:</b> ${Number(coin.price).toLocaleString("en-In", {
+           style: "currency",
+                    currency: "USD",
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        })}</p>
+        <p><b>Market Cap:</b> ₹${Number(coin.marketCap).toLocaleString("en-IN")}</p>
+        <p><b>24h Volume:</b> ₹${Number(coin["24hVolume"]).toLocaleString("en-IN")}</p>
+        <p><b>Description:</b> ${coin.description || "No description available."}</p>
+        <p><b>Website:</b> <a href="${coin.websiteUrl}" target="_blank">${coin.websiteUrl}</a></p>
+      `;
+
+      // Show Bootstrap modal
+      new bootstrap.Modal(document.getElementById("coinModal")).show();
+    })
+    .catch((err) => console.error("Error fetching coin details:", err));
+}
+
