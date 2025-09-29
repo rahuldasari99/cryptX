@@ -32,15 +32,7 @@ function fetchdata() {
                         }" class="card-img" alt="No Poster"/>
                         
                         <p class="card-title">${coins.symbol}</p>
-                         
-                      
-                        </div>
-                        
-                        <div class="card-info">
-                        <h3 class="card-title">${coins.name}</h3>
-                         <p class="card-title">Rank ${coins.rank}</p>
-                        
-                        <p class="coin-price">Price ${Number(
+                          <p class="coin-price">Price ${Number(
                           coins.price
                         ).toLocaleString("en-IN", {
                           style: "currency",
@@ -50,6 +42,8 @@ function fetchdata() {
                         })}</p>
                       
                         </div>
+                        
+                       
                         </div>
                     `;
 
@@ -141,21 +135,20 @@ function usersearch() {
               <div class="bg-black text-white d-flex flex-row coin-card">
                 <div class="card-img-container">
                   <img src="${coins.iconUrl}" class="card-img" alt="No Poster"/>
-                  <p class="card-title">${coins.symbol}</p>
+                 
                 </div>
                 <div class="card-info">
-                  <h3 class="card-title">${coins.name}</h3>
-                  <p class="coin-price">
-                    Price ${Number(coins.price).toLocaleString("en-IN", {
-                      style: "currency",
-                      currency: "USD",
-                      minimumFractionDigits: 2,
-                      maximumFractionDigits: 2,
-                    })}
-                  </p>
-                  <p class="card-title">Rank ${coins.rank}</p>
+                <p class="coin-symbol">${coins.symbol}</p>
+                 <p class="coin-price">${coins.price}</p> 
+                 
                 </div>
-              </div>
+
+              
+                  
+                 
+                 
+                </div>
+              
             `;
 
             cardContainer.appendChild(coinscard);
