@@ -180,7 +180,7 @@ function usersearch() {
   }
 }
 function getCoinDetails(id) {
-  fetch(`https://api.coinranking.com/v2/coin/${id}?referenceCurrencyUuid=razxDUgYGNAdQ`, {
+  fetch(`https://api.coinranking.com/v2/coin/${id}`, {
     headers: {
       "x-access-token": apikey,
     },
@@ -197,14 +197,26 @@ function getCoinDetails(id) {
         <img src="${coin.iconUrl}" class="img-fluid mb-3 mx-auto d-block" style="max-width:100px;">
         <p><b>Symbol:</b> ${coin.symbol}</p>
         <p><b>Rank:</b> ${coin.rank}</p>
-        <p><b>Price:</b> ${Number(coin.price).toLocaleString("en-In", {
-           style: "currency",
+         <p class="coin-price">
+                 Price ${Number(coin.price).toLocaleString("en-IN", {
+                    style: "currency",
                     currency: "USD",
-          minimumFractionDigits: 2,
-          maximumFractionDigits: 2,
-        })}</p>
-        <p><b>Market Cap:</b> ₹${Number(coin.marketCap).toLocaleString("en-IN")}</p>
-        <p><b>24h Volume:</b> ₹${Number(coin["24hVolume"]).toLocaleString("en-IN")}</p>
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                  })}
+                 </p> </p>
+        <p><b>Market Cap:</b> ${Number(coin.marketCap).toLocaleString("en-IN", {
+                    style: "currency",
+                    currency: "USD",
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                  })}</p>
+        <p><b>24h Volume:</b> ₹${Number(coin["24hVolume"]).toLocaleString("en-IN", {
+                    style: "currency",
+                    currency: "USD",
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                  })}</p>
         <p><b>Description:</b> ${coin.description || "No description available."}</p>
         <p><b>Website:</b> <a href="${coin.websiteUrl}" target="_blank">${coin.websiteUrl}</a></p>
       `;
