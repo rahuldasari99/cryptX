@@ -25,7 +25,7 @@ function fetchdata() {
             console.log(coinscard);
 
             coinscard.innerHTML = `
-             <div class="bg-black text-white coin-card" onclick="getCoinDetails('${coins.uuid}')">
+             <div class="bg-white text-black coin-card" onclick="getCoinDetails('${coins.uuid}')">
                 <div class="card-img-container">
                   <img src="${coins.iconUrl}" class="card-img" alt="No Poster"/>
                  
@@ -226,4 +226,6 @@ function getCoinDetails(id) {
     })
     .catch((err) => console.error("Error fetching coin details:", err));
 }
+
+
 

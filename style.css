@@ -98,3 +98,12 @@
 
   object-fit: cover; /* makes image scale nicely */
 }
+.nav-link{
+  color: white !important;
+}
+.bi-list{
+    color: white;
+    background:none;
+    border: none;
+    font-size: 1.7rem;
+}
